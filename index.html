@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lộ Trình Tự Học Full-Stack AI Engineer - Tài Liệu Nền Tảng & Hệ Thống</title>
+  <meta name="description" content="Landing page tuyển tập hai tài liệu kinh điển: Mathematics for Machine Learning và Machine Learning Systems Vol 1 cho kỹ sư Full-Stack AI.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Thư viện hiệu ứng CSS theo yêu cầu đề thi -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <!-- File CSS tùy biến chính của dự án -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. HEADER: Chứa Logo thương hiệu và Thanh điều hướng chính -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#" class="logo" aria-label="Trang chủ Full-Stack AI Roadmap">
+        <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+          <path d="M6 6h10"></path>
+          <path d="M6 10h10"></path>
+          <path d="M9 18h11"></path>
+        </svg>
+        <span class="logo-text">FullStack<strong>AI</strong>.Docs</span>
+      </a>
+
+      <!-- Menu với 3 nút liên kết trỏ thẳng tới thông tin liên hệ ở chân trang -->
+      <nav class="menu" aria-label="Thanh điều hướng chính">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#footer-contact" class="nav-link">Thông tin liên hệ</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact-phone" class="nav-link">Số điện thoại</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact-email" class="nav-link nav-btn-cta">Email tư vấn</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2. MAIN: Khu vực chứa toàn bộ nội dung học thuật chính -->
+  <main class="main-content">
+
+    <!-- Phần Giới thiệu mục tiêu (Hero Banner) -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="hero-badge animate__animated animate__fadeInDown">Tủ Sách Chuyên Khảo AI 2026</div>
+      <h1 id="hero-title" class="hero-title animate__animated animate__fadeInUp">
+        Lộ Trình Tự Học Để Trở Thành <span class="highlight-text">Full-Stack AI Engineer</span>
+      </h1>
+      <p class="hero-desc animate__animated animate__fadeInUp animate__delay-1s">
+        Để làm chủ AI từ gốc rễ thuật toán đến năng lực triển khai thực chiến quy mô triệu người dùng, bạn cần kiềng hai chân vững chắc: 
+        <strong>Nền tảng Toán học cốt lõi</strong> và <strong>Kiến trúc Hệ thống Machine Learning phân tán</strong>.
+      </p>
+    </section>
+
+    <!-- Khu vực hiển thị 4 trụ cột tri thức (Dùng thẻ <article> vì mỗi tài liệu là một thực thể hoàn chỉnh, độc lập) -->
+    <section class="books-showcase" aria-labelledby="books-heading">
+      <h2 id="books-heading" class="section-title">Bốn Trụ Cột Tri Thức Toàn Diện (Full-Stack 4 Layers)</h2>
+
+      <!-- TRỤ CỘT 1: Mathematics for Machine Learning -->
+      <article class="book-article" id="mml-book" data-aos="fade-up">
+        <div class="book-badge">Trụ Cột 01 • Tầng 1: Nền Tảng Toán Học</div>
+        <header class="book-header">
+          <h3 class="book-title">Mathematics for Machine Learning (MML)</h3>
+          <p class="book-author">Tác giả: Marc Peter Deisenroth, A. Aldo Faisal, Cheng Soon Ong</p>
+          <span class="book-source">Tài liệu: <code>mml-book.pdf</code> (Cambridge University Press)</span>
+        </header>
+
+        <div class="book-content">
+          <p class="book-lead">
+            Không học toán thì bạn mãi mãi chỉ là một <em>"người gọi thư viện API"</em> (Library Caller) mà không bao giờ hiểu được tại sao mô hình hội tụ, tại sao hàm mất mát bị bùng nổ đạo hàm, hay làm sao thiết kế hàm mục tiêu mới.
+          </p>
+          <ul class="book-topics">
+            <li><strong>Đại số tuyến tính:</strong> Không gian Vector, Phân rã ma trận SVD, PCA.</li>
+            <li><strong>Giải tích vi tích phân:</strong> Ma trận Gradient, Jacobian, Hessian để tối ưu Backprop.</li>
+            <li><strong>Xác suất thống kê:</strong> Phân phối Gaussian, Định lý Bayes, Ước lượng MLE/MAP.</li>
+            <li><strong>Tối ưu hóa liên tục:</strong> Gradient Descent, Hàm lồi, Ràng buộc Lagrange.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- TRỤ CỘT 2: Deep Learning (Kiến trúc Học Sâu Hiện Đại) -->
+      <article class="book-article" id="dl-book" data-aos="fade-up" data-aos-delay="150">
+        <div class="book-badge">Trụ Cột 02 • Tầng 2: Kiến Trúc Học Sâu & GenAI</div>
+        <header class="book-header">
+          <h3 class="book-title">Deep Learning ("Cuốn Kinh Thánh Của AI")</h3>
+          <p class="book-author">Tác giả: Ian Goodfellow, Yoshua Bengio, Aaron Courville</p>
+          <span class="book-source">Tài liệu: <code>deep-learning-mit.pdf</code> (MIT Press)</span>
+        </header>
+
+        <div class="book-content">
+          <p class="book-lead">
+            Cầu nối từ lý thuyết toán học thuần túy sang các mô hình trí tuệ nhân tạo hiện đại. Cung cấp nền tảng vững chắc để thấu hiểu kiến trúc Mạng nơ-ron sâu, Transformers, Attention và các mô hình sinh (Generative AI).
+          </p>
+          <ul class="book-topics">
+            <li><strong>Mạng nơ-ron chuyên sâu:</strong> CNN (Thị giác máy tính), RNN & LSTM (Chuỗi thời gian).</li>
+            <li><strong>Cơ chế Attention & Transformers:</strong> Nền tảng cốt lõi của các mô hình ngôn ngữ lớn (LLMs).</li>
+            <li><strong>Kỹ thuật tối ưu hóa Deep Net:</strong> Adam, RMSprop, Dropout, Batch Normalization.</li>
+            <li><strong>Mô hình sinh học sâu:</strong> Autoencoders, VAEs, GANs và Diffusion Foundations.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- TRỤ CỘT 3: Machine Learning Systems - Vol 1 -->
+      <article class="book-article" id="mls-book" data-aos="fade-up" data-aos-delay="300">
+        <div class="book-badge">Trụ Cột 03 • Tầng 3: Kỹ Nghệ Hệ Thống & Vận Hành</div>
+        <header class="book-header">
+          <h3 class="book-title">Machine Learning Systems (Vol 1)</h3>
+          <p class="book-author">Chuyên khảo: Kiến trúc Thiết kế & Vận hành Hạ tầng ML Quy mô lớn</p>
+          <span class="book-source">Tài liệu: <code>Machine-Learning-Systems-Vol1.pdf</code></span>
+        </header>
+
+        <div class="book-content">
+          <p class="book-lead">
+            Một mô hình AI đạt độ chính xác 99% trong Jupyter Notebook hoàn toàn vô giá trị nếu không thể phục vụ hàng chục ngàn truy vấn/giây với độ trễ thấp và độ tin cậy tuyệt đối. Đây là cẩm nang của kỹ sư hệ thống thực thụ.
+          </p>
+          <ul class="book-topics">
+            <li><strong>Hạ tầng dữ liệu:</strong> Xử lý dữ liệu streaming, Feature Store, chống Data Leakage.</li>
+            <li><strong>Huấn luyện phân tán:</strong> Data/Model Parallelism, tối ưu bộ nhớ GPU/VRAM.</li>
+            <li><strong>Hệ thống Phục vụ Mô hình:</strong> Tối ưu hóa TensorRT, Batching động, Quản trị độ trễ p99.</li>
+            <li><strong>MLOps & Giám sát:</strong> Phát hiện Model Drift, Data Drift, cơ chế tự động Retraining.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- TRỤ CỘT 4: Designing Data-Intensive Applications (Kỹ Nghệ Sản Phẩm Đầu-Cuối) -->
+      <article class="book-article" id="ddia-book" data-aos="fade-up" data-aos-delay="450">
+        <div class="book-badge">Trụ Cột 04 • Tầng 4: Ứng Dụng Sản Phẩm & Kỹ Nghệ Dữ Liệu</div>
+        <header class="book-header">
+          <h3 class="book-title">Designing Data-Intensive Applications (DDIA)</h3>
+          <p class="book-author">Tác giả: Martin Kleppmann</p>
+          <span class="book-source">Tài liệu: <code>ddia-oreilly.pdf</code> (O'Reilly Media)</span>
+        </header>
+
+        <div class="book-content">
+          <p class="book-lead">
+            Tài liệu "gối đầu giường" của mọi kỹ sư phần mềm cao cấp. Đưa AI tích hợp vào thế giới thực thông qua hệ thống phân tán chịu tải, cơ sở dữ liệu Vector, hàng đợi tin nhắn và giao thức streaming phản hồi theo luồng.
+          </p>
+          <ul class="book-topics">
+            <li><strong>Lưu trữ & Truy xuất dữ liệu:</strong> Vector Databases (Qdrant, Milvus), Indexing HNSW.</li>
+            <li><strong>Hệ thống phân tán:</strong> Đồng thuận dữ liệu, Partitioning, Replication và Fault Tolerance.</li>
+            <li><strong>Xử lý luồng sự kiện:</strong> Apache Kafka, Event-driven Architecture cho tác tử AI (Agents).</li>
+            <li><strong>Full-Stack Integration:</strong> Giao thức thời gian thực WebSockets / SSE cho giao diện người dùng.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- 3. SECTION BỔ TRỢ: Trích dẫn nhận xét và bình luận của chuyên gia -->
+    <section class="expert-reviews" id="reviews" data-aos="zoom-in">
+      <h2 class="reviews-title">Góc Nhìn Chuyên Gia & Chú Giải Bổ Sung</h2>
+      <blockquote class="review-quote">
+        <p>
+          "Sự kết hợp giữa <code>mml-book</code> và <code>Machine Learning Systems</code> chính là ranh giới phân biệt giữa một lập trình viên học vẹt và một <strong>Kiến trúc sư Trí tuệ Nhân tạo toàn diện (Full-Stack AI Architect)</strong>: Một bên cung cấp linh hồn thuật toán, một bên xây dựng khung xương hạ tầng chịu tải."
+        </p>
+        <cite>— Nhận định từ Hội đồng Cố vấn Kỹ thuật Công nghệ Thông tin</cite>
+      </blockquote>
+    </section>
+
+  </main>
+
+  <!-- 4. FOOTER: Chứa thông tin liên hệ và bản quyền theo chuẩn ngữ nghĩa W3C <address> -->
+  <footer class="site-footer" id="footer-contact">
+    <div class="footer-container">
+      <h3>Thông Tin Liên Hệ & Kết Nối Tác Quyền</h3>
+      <p class="footer-note">Các nút bấm trên menu dẫn trực tiếp đến các cổng liên lạc chính thức bên dưới:</p>
+      
+      <!-- Sử dụng thẻ <address> đúng chuẩn ngữ nghĩa W3C cho thông tin liên hệ -->
+      <address class="contact-info">
+        <p class="contact-item" id="contact-author">
+          <strong>Người phụ trách tuyển chọn:</strong> Phạm Hồng Hải Đăng (MSSV: 125000152)
+        </p>
+        <p class="contact-item" id="contact-phone">
+          <strong>Hotline tư vấn học thuật:</strong> 
+          <a href="tel:+84123456789">0123 456 789</a>
+        </p>
+        <p class="contact-item" id="contact-email">
+          <strong>Hòm thư giải đáp tài liệu:</strong> 
+          <a href="mailto:haidang.ai.engineer@example.com">haidang.ai.engineer@example.com</a>
+        </p>
+      </address>
+
+      <p class="copyright">
+        &copy; 2026 Bản quyền thuộc về sinh viên Phạm Hồng Hải Đăng - Trường Đại học Lạc Hồng.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Thư viện AOS JS khởi tạo hiệu ứng cuộn trang -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Khởi tạo thư viện Animate On Scroll
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+  </script>
+</body>
+</html>
