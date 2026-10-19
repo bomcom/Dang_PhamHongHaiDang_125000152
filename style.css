@@ -1,0 +1,556 @@
+/* ==========================================================================
+   DỰ ÁN: LANDING PAGE TÀI LIỆU FULL-STACK AI (GIỮA KỲ THIẾT KẾ WEB)
+   SINH VIÊN: PHẠM HỒNG HẢI ĐĂNG - MSSV: 125000152
+   TRIẾT LÝ THIẾT KẾ: KỸ NGHỆ CSS HIỆN ĐẠI (DARK LUXURY & CYAN BLUE)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ROOT VARIABLES: HỆ THỐNG BIẾN TOÀN CỤC CHUẨN KỸ NGHỆ
+   - Gam màu chủ đạo: Xanh dương thẳm (Deep Tech Navy) phối hợp Cyan hiện đại
+   - Nền tảng: Không gian tối (Dark Space) tạo chiều sâu bí ẩn và sang trọng
+   -------------------------------------------------------------------------- */
+:root {
+  /* Bảng màu chủ đạo (Color Palette) */
+  --bg-deep-space: #060b14;        /* Nền đen xanh thẳm của toàn bộ trang */
+  --bg-surface: #0c1626;           /* Nền bề mặt khối nội dung */
+  --bg-card: rgba(14, 26, 46, 0.85); /* Hiệu ứng kính mờ (Glassmorphism) */
+  --bg-card-hover: rgba(20, 36, 64, 0.95);
+
+  --primary-blue: #1d4ed8;         /* Xanh dương chuẩn kỹ thuật số */
+  --accent-cyan: #38bdf8;          /* Xanh lam sáng (Electric Cyan) tạo điểm nhấn AI */
+  --accent-glow: rgba(56, 189, 248, 0.25); /* Ánh hào quang cho card & hover */
+
+  --text-white: #ffffff;           /* Màu trắng tinh khiết cho nút bấm & tiêu đề */
+  --text-slate: #94a3b8;           /* Màu xám khói cho nội dung mô tả phụ */
+  --text-muted: #64748b;           /* Màu chữ chú thích nhỏ */
+
+  --border-transparent: transparent; /* Nền và viền trong suốt theo yêu cầu */
+  --border-glass: rgba(56, 189, 248, 0.12); /* Viền mờ ngăn cách khối */
+  --border-active: rgba(56, 189, 248, 0.5);
+
+  /* Hệ thống Font chữ */
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Hệ thống Khoảng cách & Kích thước (Spacing & Radius) */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 24px var(--accent-glow);
+}
+
+/* --------------------------------------------------------------------------
+   2. CSS RESET & NỀN TẢNG BỀ MẶT
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-deep-space);
+  color: var(--text-white);
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.65;
+  background-color: var(--bg-deep-space);
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(29, 78, 216, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(56, 189, 248, 0.12) 0%, transparent 45%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+code {
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent-cyan);
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88em;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   3. HEADER & MENU NAVIGATION
+   - Nút button màu trắng, nền và đường viền TRONG SUỐT theo đúng chỉ đạo
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background-color: rgba(6, 11, 20, 0.75);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 1rem 0;
+  transition: var(--transition-smooth);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo thương hiệu */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-white);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  transition: var(--transition-fast);
+}
+
+.logo-icon {
+  stroke: var(--accent-cyan);
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+}
+
+.logo strong {
+  color: var(--accent-cyan);
+}
+
+.logo:hover {
+  transform: translateY(-1px);
+}
+
+/* Menu điều hướng */
+.menu .nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+/* COMPONENT NÚT BUTTON: NỀN TRONG SUỐT + VIỀN TRONG SUỐT + CHỮ TRẮNG */
+.nav-link {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-white);           /* Chữ màu trắng tinh khiết */
+  background: var(--border-transparent); /* Nền trong suốt 100% */
+  border: 1px solid var(--border-transparent); /* Đường viền trong suốt 100% */
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+/* Hiệu ứng tương tác :hover & :focus cho nút bấm */
+.nav-link:hover {
+  color: var(--accent-cyan);
+  background: rgba(255, 255, 255, 0.06);     /* Phản quang nhẹ khi chạm */
+  border-color: rgba(56, 189, 248, 0.3);      /* Bừng sáng đường viền xanh cyan */
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+  transform: translateY(-2px);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
+
+/* Nút CTA nổi bật (vẫn giữ chuẩn nền/viền nhưng có nét nhấn nhẹ) */
+.nav-btn-cta {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.35);
+  font-weight: 600;
+}
+
+.nav-btn-cta:hover {
+  background: var(--primary-blue);
+  color: var(--text-white);
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   4. MAIN CONTENT & HERO SECTION
+   -------------------------------------------------------------------------- */
+.main-content {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 5rem;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 5rem;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: var(--radius-pill);
+  color: var(--accent-cyan);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.highlight-text {
+  background: linear-gradient(135deg, #ffffff 30%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--text-slate);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero-desc strong {
+  color: var(--text-white);
+}
+
+/* --------------------------------------------------------------------------
+   5. BỐ CỤC CHUẨN CSS GRID: KHU VỰC HIỂN THỊ HAI TÀI LIỆU SÁCH (<ARTICLE>)
+   - Bố cục 2 cột cân xứng trên Desktop, tự co giãn 1 cột trên Mobile
+   -------------------------------------------------------------------------- */
+.books-showcase {
+  margin-bottom: 5rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+  grid-column: 1 / -1; /* Trải dài toàn bộ các cột của CSS Grid */
+}
+
+/* KHUNG CSS GRID TỔ CHỨC CÁC ARTICLE SÁCH */
+.books-showcase {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .books-showcase {
+    grid-template-columns: repeat(2, 1fr); /* 2 cột cân đối hoàn hảo */
+    align-items: stretch;
+  }
+}
+
+/* Card bài viết <article> */
+.book-article {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+/* Điểm nhấn dải màu trang trí phía trên card */
+.book-article::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+/* Hiệu ứng Hover & Focus card theo tiêu chí đề thi */
+.book-article:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-active);
+  box-shadow: var(--shadow-elevated);
+}
+
+.book-article:hover::before {
+  opacity: 1;
+}
+
+.book-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.book-header {
+  margin-bottom: 1.5rem;
+}
+
+.book-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+  color: var(--text-white);
+}
+
+.book-author {
+  font-size: 0.95rem;
+  color: var(--text-slate);
+  margin-bottom: 0.5rem;
+}
+
+.book-source {
+  display: inline-block;
+  font-size: 0.85rem;
+}
+
+.book-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.book-lead {
+  font-size: 1rem;
+  color: #cbd5e1;
+  font-style: italic;
+}
+
+/* Danh sách chủ đề chuyên sâu */
+.book-topics {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.book-topics li {
+  font-size: 0.92rem;
+  color: var(--text-slate);
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.book-topics li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-cyan);
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.book-topics strong {
+  color: var(--text-white);
+}
+
+/* --------------------------------------------------------------------------
+   6. SECTION BỔ TRỢ: TRÍCH DẪN BÌNH LUẬN CHUYÊN GIA
+   -------------------------------------------------------------------------- */
+.expert-reviews {
+  background: linear-gradient(145deg, rgba(12, 22, 38, 0.9), rgba(6, 11, 20, 0.9));
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-subtle);
+}
+
+.reviews-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--accent-cyan);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.review-quote p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+.review-quote strong {
+  color: var(--accent-cyan);
+}
+
+.review-quote cite {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-style: normal;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   7. FOOTER & THẺ NGỮ NGHĨA <ADDRESS> LIÊN HỆ
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-glass);
+  padding: 4rem 1.5rem 3rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-container h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-white);
+}
+
+.footer-note {
+  color: var(--text-slate);
+  margin-bottom: 2rem;
+}
+
+/* Thẻ <address> chuẩn W3C - Reset style nghiêng mặc định */
+.contact-info {
+  font-style: normal;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  background: rgba(6, 11, 20, 0.6);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .contact-info {
+    grid-template-columns: repeat(3, 1fr); /* 3 cột thông tin liên hệ */
+    text-align: left;
+  }
+}
+
+.contact-item {
+  font-size: 0.92rem;
+  color: var(--text-slate);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contact-item strong {
+  color: var(--accent-cyan);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.contact-item a {
+  color: var(--text-white);
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.contact-item a:hover {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE BREAKPOINTS (TỐI ƯU GIAO DIỆN DI ĐỘNG)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .menu .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.88rem;
+    padding: 0.5rem 0.9rem;
+  }
+
+  .main-content {
+    padding-top: 2rem;
+  }
+
+  .hero-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .book-article {
+    padding: 1.5rem;
+  }
+}
